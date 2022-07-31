@@ -2,7 +2,7 @@ class Solution {
     public:
         const static int N = 1e5 + 9;
     bool vis[N];
-    vector < int > g[N], r[N], vec; //G is the condensed graph
+    vector < int > g[N], r[N], vec;
     void dfs1(int u) {
         vis[u] = 1;
         for (auto v: g[u])
@@ -39,7 +39,6 @@ class Solution {
                 res = max(res, (int) comp.size());
             }
         }
-        //cout<<"scc "<<scc<<endl;
         for (int i = 0; i < n; i++)
             vis[i] = 0, g[i].clear();
         vec.clear();
