@@ -14,7 +14,7 @@ public:
         if(prev=='i')id=2;
         if(prev=='o')id=3;
         if(prev=='u')id=4;
-        if(dp[idx][id]!=-1)
+        if(dp[idx][id])
             return dp[idx][id];
         int ret=0;
         if(prev=='a'){
@@ -40,7 +40,7 @@ public:
         return dp[idx][id] = ret%MOD;
     }
     int countVowelPermutation(int n) {
-        memset(dp,-1,sizeof dp);
+        //memset(dp,-1,sizeof dp);
         
         int ret=0;
         string vowel="aeiou";
