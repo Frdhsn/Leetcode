@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> g[100005];
     int res;
-    void dfs(int u,int p,vector<int>& bad,vector<int>& vs){
+    void dfs(int u,int p,vector<int>& bad,vector<bool>& vs){
         if(bad[u] or vs[u])return;
         vs[u]=1;
         res++;
@@ -17,7 +17,8 @@ public:
             g[x[0]].push_back(x[1]);
             g[x[1]].push_back(x[0]);
         }
-        vector<int> bad(n+7, 0),vs(n+7, 0);
+        vector<int> bad(n+7, 0);
+        vector<bool> vs(n+7, 0);
         for(auto x:restricted)
             bad[x]=1;
         res=0;
