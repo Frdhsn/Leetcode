@@ -44,7 +44,7 @@ public:
         
         int ret=0;
         string vowel="aeiou";
-        for(auto x:vowel)
+        for(auto &x:vowel)
         {
             
             ret=(ret%MOD + go(n,x))%MOD;
