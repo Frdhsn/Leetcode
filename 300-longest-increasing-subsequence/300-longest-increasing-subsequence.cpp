@@ -1,18 +1,16 @@
-// O(n^2)
 class Solution {
 public:
-    int dp[2505][2505];
-    int go(int idx,int prv,vector<int>& nums){
-        if(idx >= nums.size())return 0;
-        if(dp[idx+1][prv+1]!=-1)
-            return dp[idx+1][prv+1];
-        int ret = go(idx+1,prv,nums);
-        if(prv==-1 or nums[idx]>nums[prv])ret=max(ret,1+go(idx+1,idx,nums));
-        return dp[idx+1][prv+1] = ret;
-    }
-    int lengthOfLIS(vector<int>& nums) {
-        memset(dp,-1,sizeof dp);
-        int ret=go(0,-1,nums);
-        return ret;
+    int lengthOfLIS(vector<int>& A) {
+        vector<int>B;
+        B.push_back(A[0]);
+        for(int i=1;i<A.size();i++){
+            auto it = lower_bound(B.begin(),B.end(),A[i])-B.begin(); // increasing
+            //auto it = upper_bound(B.begin(),B.end(),A[i])-B.begin(); // Non-Decresing
+            if(it>=B.size()){
+                B.push_back(A[i]);
+            }
+            else B[it]=A[i];
+        }
+        return B.size();
     }
 };
