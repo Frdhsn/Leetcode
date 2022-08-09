@@ -1,7 +1,8 @@
-// TC: O(nlogn)
+// TC: O(n
 // MC: O(1)
 class Solution {
 public:
+    // divide and conq
     int count(int l,int r,vector<int>&nums,int x){
         int ret=0;
         for(int i=l;i<=r;i++)
@@ -23,8 +24,21 @@ public:
         if(lc>rc)return {lc,left.second};
         return {rc,right.second};
     }
+    
     int majorityElement(vector<int>& nums) {
-        pair<int,int> res = solve(0,nums.size()-1,nums);
-        return res.second;
+        //pair<int,int> res = solve(0,nums.size()-1,nums);
+        //return res.second;
+        
+        int freq=0,candidate=0;
+        
+        for(int x:nums){
+            if(freq == 0){
+                candidate=x;
+            }
+            if(x==candidate)freq++;
+            else freq--;
+        }
+        return candidate;
+        
     }
 };
