@@ -15,11 +15,15 @@ public:
         
         for(int i=0;i<n;i++){
             
-            for(int j=0;j<i;j++){
+            for(int j=0;j<i&& arr[j]<=arr[i]/arr[j];j++){
                 if(arr[i]%arr[j]==0){
                     int right = arr[i]/arr[j];
-                    if(mp.find(right)!=mp.end())
-                    dp[i]+=(dp[j]*dp[mp[right]])%mod;
+                    if(mp.find(right)!=mp.end()){
+                        if(arr[j] != arr[i]/arr[j])
+                            dp[i]+=(2*dp[j]*dp[mp[right]])%mod;
+                        else 
+                            dp[i]+=(dp[j]*dp[mp[right]])%mod;
+                    }
                 }
             }
         }
