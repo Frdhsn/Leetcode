@@ -1,4 +1,4 @@
-// TC: O(n)
+// TC: O(nlogn)
 // MC: O(1)
 class Solution {
 public:
