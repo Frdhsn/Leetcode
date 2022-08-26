@@ -27,6 +27,7 @@ public:
     }
     bool reorderedPowerOf2(int n) {
         vector<int> nums = digits(n);
+        sort(nums.begin(),nums.end());
         int sz = nums.size();
         vector<int>p;
         for(int i=1;i<=nums.size();i++){
@@ -39,7 +40,8 @@ public:
             for(auto idx:p)
                 t[i++]=nums[idx-1];
             if(isLeadingZero(t)==0){
-                if(isPowerOfTwo(t))return true;
+                if(isPowerOfTwo(t))
+                    return true;
             }
         }while(next_permutation(p.begin(),p.end()));
         return false;
