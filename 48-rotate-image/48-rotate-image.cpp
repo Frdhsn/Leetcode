@@ -1,9 +1,4 @@
-// rotate groups of four cells
-// top left: matrix[i][j]
-
-// top right: matrix[j][n-i-1]
-// bottom left: matrix[n-1-j][i]
-// bottom right: matrix[n-1-i][n-j-1]
+// transpose + rotate
 class Solution {
 public:
     void transpose(vector<vector<int>>& matrix){
