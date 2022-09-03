@@ -5,7 +5,7 @@ public:
         return 1 + digit(n/10);
     }
     void gen(int num,int k,int n,vector<int>&res){
-        if( digit(num) == n){
+        if( 0 == n){
             res.push_back(num);
             return;
         }
@@ -13,18 +13,18 @@ public:
         int nxt = 0;
         if(r+k<=9){
             nxt = r+k;
-            gen(num*10+nxt,k,n,res);
+            gen(num*10+nxt,k,n-1,res);
         }
         if(r-k>=0&&k){
             nxt = r-k;
-            gen(num*10+nxt,k,n,res);
+            gen(num*10+nxt,k,n-1,res);
         }
     }
     vector<int> numsSameConsecDiff(int n, int k) {
         int curr = 1;
         vector<int>res;
         for(int i=1;i<=9;i++)
-            gen(i,k,n,res);
+            gen(i,k,n-1,res);
         return res;
     }
 };
