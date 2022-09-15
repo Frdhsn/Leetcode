@@ -2,8 +2,7 @@ class Solution {
 public:
     vector<int> findOriginalArray(vector<int>& changed) {
         sort(changed.rbegin(),changed.rend());
-        vector<int>res;
-        map<int,int> boro;
+        vector<int>res,boro(200007);
         for(auto x:changed){
             if(boro[x*2]>0){
                 res.push_back(x);
@@ -13,8 +12,8 @@ public:
                 boro[x]++;
             }
         }
-        for(auto x:boro){
-            if(x.second) return {};
+        for(int i=0;i<=100000;i++){
+            if(boro[i]) return {};
         }
         //cout<<endl;
         //if(boro.size())return {};
