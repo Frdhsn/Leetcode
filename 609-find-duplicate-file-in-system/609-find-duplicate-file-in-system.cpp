@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void mapping(string x,map<string,vector<string>> &mp){
+    void mapping(string x,unordered_map<string,vector<string>> &mp){
         stringstream ss(x);
         string directory_path,file_name,content;
         ss>>directory_path;
@@ -19,7 +19,7 @@ public:
     }
     vector<vector<string>> findDuplicate(vector<string>& paths) {
         vector<vector<string>>res;
-        map<string,vector<string>> mp;
+        unordered_map<string,vector<string>> mp;
         for(auto x:paths){
             mapping(x,mp);
         }
