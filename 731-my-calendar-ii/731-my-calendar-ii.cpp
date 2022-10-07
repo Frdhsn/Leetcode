@@ -15,7 +15,7 @@ public:
         int res=0;
         for(auto x:intervals){
             sum+=x.second;
-            if( sum == 3){
+            if( sum >= 3){
                 
                 intervals[start]--;
                 intervals[end]++;
