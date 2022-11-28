@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> findWinners(vector<vector<int>>& matches) {
-        unordered_map<int,int> st;
+        map<int,int> st;
         map<int,int> loss;
         for(auto x:matches){
             st[x[0]]=1;
@@ -20,8 +20,8 @@ public:
                 f.push_back(x);
             }
         }
-        sort(f.begin(),f.end());
-        sort(s.begin(),s.end());
+        // sort(f.begin(),f.end());
+        // sort(s.begin(),s.end());
         res.push_back(f);
         res.push_back(s);
         return res;
