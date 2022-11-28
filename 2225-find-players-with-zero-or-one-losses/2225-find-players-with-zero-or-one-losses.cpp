@@ -6,7 +6,8 @@ public:
         for(auto x:matches){
             st[x[0]]=1;
             st[x[1]]=1;
-            loss[x[1]]++;
+            if(loss[x[1]] <= 1 )
+                loss[x[1]]++;
         }
         vector<vector<int>>res;
         vector<int> f, s;
