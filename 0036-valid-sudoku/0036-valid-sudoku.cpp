@@ -27,13 +27,10 @@ public:
                 for(int k=i;k<i+3;k++){
                     for(int l=j;l<j+3;l++){
                         cnt[board[k][l]]++;
-                        //cout<<board[k][l];
                         if(cnt[board[k][l]]>1 && board[k][l]!='.')return 0;
-                        //if(cnt[board[i][j]]==9 && board[i][j]=='.')return 0;
                         
                     }
                 }
-                //cout<<endl;
             }
         }
         return 1;
