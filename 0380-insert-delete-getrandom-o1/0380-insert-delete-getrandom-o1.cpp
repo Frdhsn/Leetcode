@@ -1,7 +1,7 @@
 class RandomizedSet {
 public:
         set<int>S;
-        map<int,bool>M;
+        unordered_map<int,bool>M;
     /** Initialize your data structure here. */
     RandomizedSet() {
         S.clear();
